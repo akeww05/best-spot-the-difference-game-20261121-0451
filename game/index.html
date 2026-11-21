@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lantern Lane — Spot the Difference</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">&#9670;</span>
+      <span class="brand-name">Lantern Lane</span>
+      <span class="brand-sub">Spot the Difference</span>
+    </div>
+    <nav id="level-tabs" aria-label="Levels"></nav>
+    <div class="hud">
+      <div class="hud-item" id="hud-score" title="Score">Score <b id="score-value">0</b></div>
+      <div class="hud-item" id="hud-combo" title="Combo">Combo <b id="combo-value">&times;1</b></div>
+      <div class="hud-item hud-timer" title="Time left">
+        <span id="timer-text">4:00</span>
+        <span id="timer-bar"><span id="timer-fill"></span></span>
+      </div>
+      <div class="hud-item hud-remaining" title="Differences still to find">
+        <span class="remaining-label">Remaining</span>
+        <b id="remaining-value">7</b>
+      </div>
+      <button id="hint-button" class="hud-button" type="button" title="Hint (H) — 3 per level">Hint <b id="hint-count">3</b></button>
+      <button id="mute-button" class="hud-button" type="button" title="Sound on/off (M)">Sound: On</button>
+    </div>
+  </header>
+
+  <main id="stage">
+    <section class="panel-wrap" id="panel-left-wrap">
+      <div class="panel-label"><span>Left picture</span><span class="panel-key">A</span></div>
+      <div class="panel" id="panel-left" tabindex="0" aria-label="Left picture"></div>
+    </section>
+    <section class="panel-wrap" id="panel-right-wrap">
+      <div class="panel-label"><span>Right picture</span><span class="panel-key">B</span></div>
+      <div class="panel" id="panel-right" tabindex="0" aria-label="Right picture"></div>
+    </section>
+    <aside id="sidebar">
+      <h2 id="level-title">Harbour Dawn</h2>
+      <p id="level-blurb">Find every difference between the two pictures. Click a difference on either side — or move the crosshair with the arrow keys and press Enter.</p>
+      <div id="found-counter"><span id="found-value">0</span> found &middot; <span id="remaining-small">7</span> remain</div>
+      <div id="progress-track"><div id="progress-fill"></div></div>
+      <ol id="found-list" aria-label="Differences found"></ol>
+      <div id="message" role="status"></div>
+      <div class="keys-help">
+        <p><kbd>&larr;</kbd><kbd>&uarr;</kbd><kbd>&darr;</kbd><kbd>&rarr;</kbd> move crosshair &nbsp; <kbd>Enter</kbd> mark</p>
+        <p><kbd>H</kbd> hint &nbsp; <kbd>R</kbd> restart &nbsp; <kbd>M</kbd> sound &nbsp; <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> level</p>
+      </div>
+    </aside>
+  </main>
+
+  <div id="overlay" class="overlay hidden">
+    <div class="overlay-card" id="overlay-card"></div>
+  </div>
+</div>
+<script src="audio.js"></script>
+<script src="scenes.js"></script>
+<script src="game.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
