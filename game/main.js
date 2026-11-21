@@ -22,6 +22,8 @@
     game.placeCrosshair();
     game.showMenu();
     window.__game = game;
+    console.log('Lantern Lane ready: ' + game.levelCount() + ' levels, '
+      + game.level.differences.length + ' differences in the first scene.');
   }
 
   if (document.readyState === 'loading') {

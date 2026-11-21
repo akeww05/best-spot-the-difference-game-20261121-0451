@@ -35,6 +35,7 @@ function writeDossier(): void {
   const dossier = buildDossier(OUTPUT_DIR, DOSSIER_CAPS);
   writeFileSync(join(OUTPUT_DIR, 'dossier.json'), dossier);
   console.log(`main.ts: wrote dossier.json (${dossier.length} bytes) to ${OUTPUT_DIR}`);
+  console.log(`main.ts: entry ready — game/, screenshots/ and dossier.json in ${OUTPUT_DIR}`);
 }
 
 copyEntryTree();

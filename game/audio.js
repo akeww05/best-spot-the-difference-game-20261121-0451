@@ -70,6 +70,12 @@
     tone(520, 0, 0.07, 'sine', 0.1);
   }
 
+  // A bright two-note lift when a level starts.
+  function playLevelStart() {
+    tone(523, 0, 0.14, 'triangle', 0.14);
+    tone(784, 0.1, 0.22, 'triangle', 0.14);
+  }
+
   function setMuted(value) {
     muted = !!value;
     return muted;
@@ -87,6 +93,7 @@
     playWin: playWin,
     playTick: playTick,
     playClick: playClick,
+    playLevelStart: playLevelStart,
     setMuted: setMuted,
     isMuted: isMuted,
   };

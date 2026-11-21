@@ -43,6 +43,12 @@ body {
 .hud-item b { color: #fff; font-size: 16px; }
 .hud-remaining { background: #5a2d12; border-color: #ff9a3d; color: #ffd9a8; }
 .hud-remaining b { color: #ffc857; font-size: 22px; }
+.hud-remaining.bump { animation: remainingBump 0.35s ease-out; }
+@keyframes remainingBump {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.12); border-color: #ffd97a; }
+  100% { transform: scale(1); }
+}
 .remaining-label { text-transform: uppercase; font-size: 11px; letter-spacing: 1px; margin-right: 4px; }
 .hud-timer { display: flex; align-items: center; gap: 8px; }
 #timer-text { font-variant-numeric: tabular-nums; font-weight: 700; color: #fff; }

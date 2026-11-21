@@ -110,6 +110,9 @@
       + '<g>' + path('M 380 392 L 460 392 L 448 408 L 392 408 Z', '#bc6c25')
       + rect(398, 384, 6, 12, '#6c4a2f') + rect(436, 384, 6, 12, '#6c4a2f')
       + circle(404, 400, 3, '#ffe66d') + circle(436, 400, 3, '#ffe66d') + '</g>'
+      // a striped buoy bobbing in the open water
+      + '<g>' + ellipse(280, 420, 13, 6, '#e76f51') + rect(273, 404, 14, 12, '#f1faee')
+      + rect(273, 404, 14, 5, '#e63946') + circle(280, 401, 3, '#ffd97a') + '</g>'
       // wooden pier on the left, with a fisherman and his bucket
       + '<g>' + rect(30, 330, 130, 12, '#8d5a2b') + rect(30, 342, 130, 8, '#7b4b2a')
       + rect(44, 350, 10, 60, '#6c4a2f') + rect(136, 350, 10, 60, '#6c4a2f')
@@ -196,10 +199,12 @@
       + poly('320,224 340,224 330,262 310,262', '#ffd97a') + poly('360,224 380,224 370,262 350,262', '#ffd97a')
       + poly('400,224 420,224 410,262 390,262', '#ffd97a')
       + lantern(335, 210, 1, '#e63946', true) + lantern(380, 205, 1.1, stallLantern, true) + lantern(425, 210, 1, '#ffd97a', true)
-      + text(380, 340, 'LANTERNS', 14, '#ffd97a') + '</g>'
+      + '</g>'
       + '<g>' + circle(380, 296, 13, '#f4d58d') + path('M 366 288 Q 380 276 394 288 L 392 292 L 368 292 Z', '#2b2d42')
       + rect(364, 308, 32, 42, apronFill, ' rx="5"') + rect(364, 308, 32, 12, '#f4d58d')
       + circle(368, 330, 3, '#ffd97a') + circle(392, 330, 3, '#ffd97a') + '</g>'
+      // Stall names are drawn last so the vendor never covers his own sign.
+      + text(380, 344, 'LANTERNS', 14, '#ffd97a')
       // toy stall (right)
       + '<g>' + rect(490, 260, 130, 90, '#6d4c2f') + rect(490, 260, 130, 10, '#8d5a2b')
       + poly('480,262 500,224 610,224 630,262', '#e76f51')
@@ -253,8 +258,8 @@
       + (variant.has('mushroom-count') ? '' : mushroom(128, 430, 0.9));
     var benchSlat = variant.has('bench-slat') ? '' : rect(298, 348, 54, 7, '#8d5a2b', ' rx="3"');
     var willowBranch = variant.has('willow-branch') ? '' :
-      path('M 590 60 Q 596 110 584 150 Q 578 178 586 196', 'none', ' stroke="#2d6a4f" stroke-width="3" fill="none"')
-      + circle(586, 196, 4, '#40916c');
+      path('M 596 122 Q 602 155 590 186', 'none', ' stroke="#40916c" stroke-width="3" fill="none"')
+      + circle(590, 186, 4, '#40916c');
     var ripples = variant.has('ripple-rings')
       ? ellipse(360, 430, 22, 6, 'none', ' stroke="#bde0fe" stroke-width="2" fill="none" opacity="0.6"')
         + ellipse(360, 430, 36, 9, 'none', ' stroke="#bde0fe" stroke-width="2" fill="none" opacity="0.4"')
@@ -284,13 +289,14 @@
       // grass
       + rect(0, 290, 640, 190, '#1d4d33')
       + path('M 0 330 Q 160 318 320 330 T 640 330 L 640 480 L 0 480 Z', '#245c3d')
-      // willow tree on the right
-      + '<g>' + rect(576, 180, 22, 120, '#5a3a22')
-      + path('M 587 180 Q 540 120 500 130 Q 520 90 560 100 Q 580 60 600 90 Q 620 60 630 100 Q 610 130 596 150', '#2d6a4f')
-      + path('M 560 150 Q 540 190 548 230', 'none', ' stroke="#40916c" stroke-width="3" fill="none"')
-      + path('M 520 170 Q 500 200 510 240', 'none', ' stroke="#40916c" stroke-width="3" fill="none"')
+      // willow tree on the right, its long branches drooping over the pond
+      + '<g>' + rect(578, 175, 20, 125, '#5a3a22')
+      + ellipse(560, 118, 52, 26, '#2d6a4f') + ellipse(610, 104, 42, 24, '#2d6a4f') + ellipse(586, 82, 38, 22, '#2d6a4f')
+      + ellipse(530, 100, 30, 18, '#40916c') + ellipse(600, 130, 34, 16, '#40916c')
+      + path('M 552 138 Q 542 185 550 228', 'none', ' stroke="#40916c" stroke-width="3" fill="none"')
+      + path('M 520 150 Q 504 195 512 236', 'none', ' stroke="#40916c" stroke-width="3" fill="none"')
       + willowBranch
-      + circle(548, 230, 4, '#40916c') + circle(510, 240, 4, '#40916c') + '</g>'
+      + circle(550, 228, 4, '#40916c') + circle(512, 236, 4, '#40916c') + '</g>'
       // stone path
       + stones
       + ellipse(300, 446, 22, 8, '#adb5bd') + ellipse(370, 452, 22, 8, '#ced4da')

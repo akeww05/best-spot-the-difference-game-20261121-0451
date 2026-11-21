@@ -29,6 +29,7 @@
     this.crosshair = { x: VW / 2, y: VH / 2 };
     this.completedLevels = {}; // level id -> stars earned
     this.hintPulse = null;
+    this.lastRemaining = null;
   }
 
   SpotDifferenceGame.prototype.levelCount = function () {
@@ -92,6 +93,13 @@
 
   SpotDifferenceGame.prototype.renderHud = function () {
     var remaining = this.remainingCount();
+    if (this.lastRemaining !== null && remaining !== this.lastRemaining) {
+      var pill = document.querySelector('.hud-remaining');
+      pill.classList.remove('bump');
+      void pill.offsetWidth;
+      pill.classList.add('bump');
+    }
+    this.lastRemaining = remaining;
     $('score-value').textContent = String(this.score);
     $('combo-value').textContent = 'x' + Math.max(1, this.combo);
     $('remaining-value').textContent = String(remaining);
@@ -136,7 +144,7 @@
     this.renderPanel($('panel-right'), all);
     this.placeCrosshair();
     this.setMessage('Find ' + this.level.differences.length + ' differences — good hunting!');
-    window.SoundBank.playClick();
+    window.SoundBank.playLevelStart();
     this.startTimer();
   };
 
